@@ -1,0 +1,21 @@
+<?php
+/**
+ * The template used for displaying page content in page.php
+ *
+ * @package secondstep
+ * @since secondstep 1.0
+ */
+?>
+
+<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+	<header class="entry-header">
+		<h1 class="entry-title"><?php the_title(); ?></h1>
+		<h3><?php echo get_post_meta(get_the_ID(), 'position', true); ?> </h3>
+	</header><!-- .entry-header -->
+
+	<div class="entry-content">
+		<?php the_content(); ?>
+		<?php wp_link_pages( array( 'before' => '<div class="page-links">' . __( 'Pages:', 'secondstep' ), 'after' => '</div>' ) ); ?>
+	</div><!-- .entry-content -->
+	<?php edit_post_link( __( 'Edit', 'secondstep' ), '<footer class="entry-meta"><span class="edit-link">', '</span></footer>' ); ?>
+</article><!-- #post-<?php the_ID(); ?> -->
